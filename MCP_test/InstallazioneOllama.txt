@@ -1,0 +1,32 @@
+SEnza settare nessun conda env, installato Ollama per Ubuntu col comando
+ 
+ curl -fsSL https://ollama.com/install.sh | sh
+ 
+Terminata l'installazione, ho verificato i modelli con 
+ 
+ ollama list
+ 
+e ovviamente la lista era vuota
+ 
+Per iniziare ad usare ollama ho scaricato il primo modello con
+ 
+ ollama run llama3.1
+ 
+Questo modello scarica
+ 
+Llama 3.1	8B	4.7GB	
+ 
+Successivamente procederò ad importare un nuovo modello a partire da un gguf già presente sul computer.
+Per fare ciò dovrò:
+- creare un file chiamato Modelfile che dovrà contenere 
+
+FROM ./vicuna-33b.Q4_0.gguf
+
+Creare il nuovo modelo in ollama col comando
+
+ ollama create example -f Modelfile
+ 
+Eseguire il modello col comando
+
+ ollama run example
+
